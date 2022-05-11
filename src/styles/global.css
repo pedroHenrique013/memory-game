@@ -1,0 +1,17 @@
+:root {
+    --color-arsenic: #3A4042;
+    --color-floral-white: #fffcee;
+    --color-old-silver: #828282;
+    --color-eggshell: #EAE6DA;
+    --color-logo: #051932;
+    --color-pomb-and-power: #7c5e99;
+    --color-flery-rose: #F25A70;
+    --color-cardinal: #BA1F33;
+    --color-sandstorm: #F5D547;
+    --color-mantis: #62C370;
+}
+
+body {
+    background-color: var(--color-pomb-and-power);
+    
+}

@@ -11,8 +11,15 @@
     --color-mantis: #62C370;
 }
 
+html,
+body {
+    height: 100%;
+    font-size: 62.5%;
+}
+
 body {
     background-color: var(--color-pomb-and-power);
     max-width: 320px;
     margin: 0 auto;
+    font-family: 'Press Start 2P', cursive;
 }

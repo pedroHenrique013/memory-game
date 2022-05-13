@@ -1,0 +1,25 @@
+.player-view {
+    width: 2rem;
+    height: 1.5rem;
+    position: absolute;
+    top: 4px;
+    transform: translateX(-45px);
+    transition: transform 200ms ease-in-out;
+    animation: animate 1s linear infinite;
+ } 
+  
+ @keyframes animate{
+   0%{
+     opacity: 1;
+   }
+   50%{
+     opacity: 0.2;
+   }
+   100%{
+     opacity: 1;
+   }
+ }
+
+.player-view[data-currentPlayer="2"] {
+    transform: translateX(45px);
+}

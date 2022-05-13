@@ -1,5 +1,11 @@
 .score-board {
     display: flex;
+    align-items: center;
     justify-content: space-evenly;
     padding: 2.5rem 0;
+}
+
+.versus {
+    color: var(--color-sandstorm);
+    font-size: 1rem;
 }

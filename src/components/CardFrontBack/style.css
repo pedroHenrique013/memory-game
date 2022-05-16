@@ -14,6 +14,10 @@
     transform: rotateY(180deg);
 }
 
+.card-front-back.-active.-disabled {
+    pointer-events: none;
+}
+
 .card-front-back > .card {
     position: absolute;
     backface-visibility: hidden;
@@ -26,3 +30,4 @@
 .card-front-back > .card.-back > .card-game {
     background-color: var(--color-flery-rose);
 }
+

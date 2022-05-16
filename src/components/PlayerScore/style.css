@@ -28,6 +28,6 @@
     background-color: var(--color-mantis);
 }
 
-.player-score[data-points="3"] > .points:nth-child(n+3) {
+.player-score[data-points="3"] > .points:nth-last-child(n+1) {
     background-color: var(--color-mantis);
 }

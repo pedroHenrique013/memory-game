@@ -1,24 +1,40 @@
-import './style.css';
+import "./style.css";
 
-import { CardFrontBack } from '../CardFrontBack';
-import { cards } from '../../js/dados';
-import { cardsCompare } from './../../js/index';
+import { shuffle, orderCards } from "./../../js/index";
 
+export function BoardGame() {
+  orderCards();
 
-
-export function BoardGame (amountCard) {
 
   window.boardGame = {}
   window.boardGame.handleClick = () => {
-    cardsCompare();
+    const $cardsActive = document.querySelectorAll(".-flip");
+    const $modal = document.querySelector(".modal");
+    const $playerWinner = $modal.querySelector(".player-win");
+    const $score = document.getElementsByTagName("ol");
+    
+
+    if($cardsActive.length == 6){
+      console.log($score[1].dataset.points, $score[0].dataset.points);
+      if($score[0].dataset.points > $score[1].dataset.points){
+        $modal.classList.remove("-play");
+        $playerWinner.innerHTML = "Player1";
+      }else if($score[1].dataset.points > $score[0].dataset.points){
+        $modal.classList.remove("-play");
+        $playerWinner.innerHTML = "Player2";
+      } else {
+        $modal.classList.add("-play");
+        $playerWinner.innerHTML = "Empate";
+      }
+    }
   }
 
-  const htmlCardsList = cards.map((card) => CardFrontBack(card.icon, card.alt));
-  const $htmlCards = htmlCardsList.join('');
-  
-  return /*html*/`
-    <section class="board-game" onClick="boardGame.handleClick()">
-        ${$htmlCards}
+  const htmlCardsList = shuffle();
+  const $htmlCards = htmlCardsList.join("");
+
+  return /*html*/ `
+    <section id="board" class="board-game" onClick="boardGame.handleClick()">
+      ${$htmlCards}
     </section>
   `;
 }

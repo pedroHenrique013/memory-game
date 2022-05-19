@@ -14,6 +14,11 @@
     transform: rotateY(180deg);
 }
 
+.card-front-back.-flip{
+    transform: rotateY(180deg);
+    cursor: not-allowed;
+}
+
 .card-front-back.-active.-disabled {
     pointer-events: none;
 }

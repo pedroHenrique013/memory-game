@@ -6,7 +6,13 @@
     transform: translateX(-45px);
     transition: transform 200ms ease-in-out;
     animation: animate 1s linear infinite;
- } 
+ }
+
+ @media screen and (max-width: 425px) {
+  .player-view {
+      top: 18px;
+  }
+}
   
  @keyframes animate{
    0%{

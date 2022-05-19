@@ -10,9 +10,9 @@ export function ScoreBoard() {
     <header class="score-board">
       ${PlayerView(1)}
       ${PlayerName("Player1")}
-      ${PlayerScore()}
+      ${PlayerScore(0,1)}
       <p class="versus">vs</p>
-      ${PlayerScore()}
+      ${PlayerScore(0,2)}
       ${PlayerName("Player2")}
     </header>
   `;

@@ -1,36 +1,32 @@
 import { cards } from "./dados";
 import { CardFrontBack } from "./../components/CardFrontBack/index";
-import { PlayerName } from "./../components/PlayerName/index";
 
 let hasFlippedCard = false;
 let firstCard, secondCard;
 
 export const logicGame = (event) => {
-
   /*-------------- Add class -active to card --------------*/
   const $origin = event.target;
   const $cardFrontBack = $origin.closest(".card-front-back");
-  const $firstCard = $cardFrontBack
+  const $srcCard = $cardFrontBack
     .querySelector(".card.-back #img")
     .getAttribute("src");
   $cardFrontBack.classList.add("-active");
-  
+
   if ($cardFrontBack.getAttribute("class") === "card-front-back -active") {
-    $cardFrontBack.setAttribute("onclick", "return false");
+    $cardFrontBack.removeAttribute("onclick");
   }
-
-
 
   /*-------------- If hasFlippedCard is false, save firstCard --------------*/
   if (!hasFlippedCard) {
     hasFlippedCard = true;
-    firstCard = $firstCard;
-    console.log(firstCard);
+    firstCard = $srcCard;
     return firstCard;
   }
 
   hasFlippedCard = false;
-  secondCard = $firstCard;
+  secondCard = $srcCard;
+  console.log(firstCard, secondCard);
   const $cardsActive = document.querySelectorAll(".-active");
   const $score = document.getElementsByTagName("ol");
   const $playerScore = document.querySelector(".player-score");
@@ -38,7 +34,6 @@ export const logicGame = (event) => {
 
   /*-------------- If firstCard is equal to secondCard, hide cards --------------*/
   if (firstCard === secondCard) {
-    
     if ($playerScore.getAttribute("data-currentScore") === "1") {
       $score[0].dataset.points = parseInt($score[0].dataset.points) + 1;
       toString($score[0].dataset.points);
@@ -50,10 +45,9 @@ export const logicGame = (event) => {
     }
     $cardsActive.forEach((card) => {
       card.classList.add("-flip");
-      card.setAttribute("onclick", "return false");
+      card.removeAttribute("onclick");
     });
-
-  } else { 
+  } else {
     setTimeout(() => {
       flipHideCards($cardsActive);
       swapPlayer();
@@ -108,5 +102,3 @@ cards.forEach((elemento) => {
 });
 
 const cardSort = cards;
-
-
